@@ -1,0 +1,47 @@
+{
+  "name": "dijkstra-algorithm",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "electron-packager": "^14.2.1",
+    "gulp": "^4.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-graph-vis": "^1.0.5",
+    "react-scripts": "3.4.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "main": "src/electron-starter.js",
+  "homepage": "./",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "ep" : "electron-packager . DijkstraAlgorithm --platform=win32 --arch=x64"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^9.0.4",
+    "electron-winstaller": "^4.0.0"
+  }
+}
