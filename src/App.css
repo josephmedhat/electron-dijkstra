@@ -6,3 +6,11 @@ input {
 .mr-3 {
   margin-right: 3px;
 }
+.dimmer {
+  background: url("/bg.png") no-repeat;
+}
+.fci {
+  width: 100px;
+  margin-left: 30px;
+  margin-right: 30px;
+}

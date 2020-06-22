@@ -4,6 +4,7 @@ import NodeControl from "./NodeControl";
 import EdgeControl from "./EdgeControl";
 import SolveControl from "./SolveControl";
 import DeleteControl from "./DeleteControl";
+import EdgeDeleteControl from "./EdgeDeleteControl";
 import {
   Container,
   Grid,
@@ -71,9 +72,37 @@ function App() {
               under the supervision of
               <br />
               Dr.Moustafa reda Eltantawi
+              <Divider />
+              <Button.Group>
+                <Button onClick={() => setDimmed(true)}>Back</Button>
+                <Button.Or />
+                <Button
+                  color="blue"
+                  onClick={() => {
+                    setBi(false);
+                    ref.current.Network.setOptions({
+                      edges: {
+                        smooth: true,
+                        arrows: { to: { enabled: true } },
+                      },
+                    });
+                    ref.current.nodes
+                      .get()
+                      .forEach((n) => ref.current.nodes.remove(n));
+                    ref.current.edges
+                      .get()
+                      .forEach((n) => ref.current.edges.remove(n));
+                    graph.nodes.forEach((n) => ref.current.nodes.add(n));
+                    graph.edges.forEach((n) => ref.current.edges.add(n));
+                  }}
+                >
+                  Reset
+                </Button>
+              </Button.Group>
             </Segment>
             <Segment>
               <Header
+                bi={bi}
                 onChange={(val) => {
                   setBi(val);
                   if (val) {
@@ -108,6 +137,15 @@ function App() {
                   addEdge(edge, ref.current, bi);
                 }}
               ></EdgeControl>
+              <Divider />
+              <EdgeDeleteControl
+                onDelete={(from, to) => {
+                  const edge = ref.current.edges
+                    .get()
+                    .filter((e) => e.from == from && e.to == to);
+                  ref.current.edges.remove(edge);
+                }}
+              />
               <Divider></Divider>
               <SolveControl
                 solving={solving}
@@ -238,19 +276,25 @@ function App() {
         </Grid.Row>
       </Grid>
       <Dimmer page={true} active={dimmed}>
-        <SHeader inverted icon>
-          Welcome To Maximum Flow and Dijkstra Algorithms
-          <SHeader.Subheader>
-            This is An Implementation For the final Algorithms project 2019/2020
-            <br />
-            under the supervision of
-            <br />
-            <strong>Dr.Moustafa reda Eltantawi</strong>
-            <p>
-              faculty of computer and artificial intelligence - cairo university
-            </p>
-          </SHeader.Subheader>
-        </SHeader>
+        <Segment>
+          <img className="fci" src="/fci.jpeg"></img>
+          <SHeader icon>
+            Graph Implementation
+            <SHeader.Subheader>
+              This is An Implementation For the final Algorithms project
+              2019/2020
+              <br />
+              under the supervision of
+              <br />
+              <strong>Dr.Moustafa reda Eltantawi</strong>
+              <p>
+                faculty of computer and artificial intelligence - cairo
+                university
+              </p>
+            </SHeader.Subheader>
+          </SHeader>
+          <img className="fci" src="/cairo.jpeg"></img>
+        </Segment>
         <Table celled inverted>
           <Table.Header>
             <Table.Row>
@@ -284,7 +328,7 @@ function App() {
         </Table>
         <Button
           onClick={(e) => setDimmed(false)}
-          content="Proceed"
+          content="Welcome to our implementation"
           icon="right arrow"
           labelPosition="right"
         />

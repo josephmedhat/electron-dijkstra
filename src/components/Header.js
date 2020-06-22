@@ -1,5 +1,5 @@
 import React from "react";
-import { Header as SHeader, Icon, Radio } from "semantic-ui-react";
+import { Header as SHeader, Icon, Radio, Button } from "semantic-ui-react";
 
 const Header = (props) => {
   return (
@@ -13,6 +13,7 @@ const Header = (props) => {
           onChange={(e, s) => {
             props.onChange(s.checked);
           }}
+          checked={props.bi}
           label="bidirectional"
           toggle
         ></Radio>
