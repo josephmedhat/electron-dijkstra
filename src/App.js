@@ -277,7 +277,7 @@ function App() {
       </Grid>
       <Dimmer page={true} active={dimmed}>
         <Segment>
-          <img className="fci" src="/fci.jpeg"></img>
+          <img className="fci" src="fci.jpeg"></img>
           <SHeader icon>
             Graph Implementation
             <SHeader.Subheader>
@@ -293,7 +293,7 @@ function App() {
               </p>
             </SHeader.Subheader>
           </SHeader>
-          <img className="fci" src="/cairo.jpeg"></img>
+          <img className="fci" src="./cairo.jpeg"></img>
         </Segment>
         <Table celled inverted>
           <Table.Header>

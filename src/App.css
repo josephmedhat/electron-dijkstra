@@ -7,7 +7,7 @@ input {
   margin-right: 3px;
 }
 .dimmer {
-  background: url("/bg.png") no-repeat;
+  background: url("./bg.png") no-repeat;
 }
 .fci {
   width: 100px;
